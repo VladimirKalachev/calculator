@@ -10,7 +10,7 @@ public class CalcService {
         return model.getA() + model.getB();
     }
 
-    public int sub(CalcModel model) {
+    public int subtr(CalcModel model) {
         return model.getA() - model.getB();
     }
 
@@ -23,4 +23,5 @@ public class CalcService {
         if (model.getB() == 0) return 0;
         return (double) model.getA() / model.getB();
     }
+
 }

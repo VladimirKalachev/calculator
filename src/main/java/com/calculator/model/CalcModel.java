@@ -54,4 +54,14 @@ public class CalcModel {
     public void setC(int c) {
         this.c = c;
     }
+
+    @Override
+    public String toString() {
+        return "CalcModel{" +
+                "operation='" + operation + '\'' +
+                ", a=" + a +
+                ", b=" + b +
+                ", c=" + c +
+                '}';
+    }
 }
