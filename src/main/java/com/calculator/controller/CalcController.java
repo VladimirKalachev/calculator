@@ -52,5 +52,24 @@ public class CalcController {
         model.addAttribute("result", calcService.divide(a, b));
     }
 
+    //advanced
+    @RequestMapping(value = "/calc", method = RequestMethod.POST, params = "fact")
+    public void factorial(@RequestParam(value = "c") int c,
+                          Model model) {
+        model.addAttribute("result", calcService.fact(c));
+    }
+
+    @RequestMapping(value = "/calc", method = RequestMethod.POST, params = "sqrt")
+    public void sqrt(@RequestParam(value = "c") int c,
+                     Model model) {
+        model.addAttribute("result", calcService.sqrt(c));
+    }
+
+    @RequestMapping(value = "/calc", method = RequestMethod.POST, params = "pow")
+    public void sqrt(@RequestParam(value = "a") int a,
+                     @RequestParam(value = "b") int b,
+                     Model model) {
+        model.addAttribute("result", calcService.power(a, b));
+    }
 
 }

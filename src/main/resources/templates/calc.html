@@ -14,18 +14,17 @@
         <button class="btn btn-primary" type="submit" name="subst">-</button>
         <button class="btn btn-primary" type="submit" name="mult">*</button>
         <button class="btn btn-primary" type="submit" name="divide">/</button>
-        <button class="btn btn-primary" type="submit" name="Cancel">C</button>
+
 
     </p>
 
     <h1>Advanced:</h1>
-    <input type="text"/>
+    <input type="text" name="c"/>
     <p>
-        <input type="submit" class="button" name="fibonacci" value="fib"/>
-        <input type="submit" class="button" name="factorial" value="!"/>
-        <input type="submit" class="button" name="sqrt" value=&#8730/>
-        <input type="submit" class="button" name="power" value="^"/>
-        <input type="submit" class="button" name="clearAdvanced" value="C"/>
+        <button class="btn btn-primary" type="submit" name="fact">!</button>
+        <button class="btn btn-primary" type="submit" name="sqrt">&#8730</button>
+        <button class="btn btn-primary" type="submit" name="pow">^</button>
+
     </p>
     <h1><p th:text="'result: ' + ${result}"/></h1>
 </form>
