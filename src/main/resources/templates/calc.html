@@ -4,27 +4,22 @@
     <title>calculator</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<!--<body bgcolor="#009933">-->
 
 <h1>Simple:</h1>
-<form action="/calc" th:object="${calcModel}" method="POST">
-    <input type="text" name="a" th:field="*{a}"/>
-    <input type="text" name="b" th:field="*{b}"/>
+<form action="/calc" method="POST">
+    <input type="text" name="a"/>
+    <input type="text" name="b"/>
     <p>
-    <form action="/plus">
-        <button>+</button>
-    </form>
-    <!--<input type="submit" class="button"  name="add" value="+"/>-->
-    <!--  <button type="submit" name="action" value="add">+</button>
-      <button type="submit" name="action" value="subtract">-</button>-->
-    <!-- <input type="submit" class="button" name="subtract" value="-"/>-->
-    <input type="submit" class="button" name="multiply" value="*"/>
-    <input type="submit" class="button" name="divide" value="/"/>
-    <input type="submit" class="button" name="clearSimple" value="C"/>
+        <button class="btn btn-primary" type="submit" name="plus">+</button>
+        <button class="btn btn-primary" type="submit" name="subst">-</button>
+        <button class="btn btn-primary" type="submit" name="mult">*</button>
+        <button class="btn btn-primary" type="submit" name="divide">/</button>
+        <button class="btn btn-primary" type="submit" name="Cancel">C</button>
+
     </p>
 
     <h1>Advanced:</h1>
-    <input type="text" th:field="*{c}"/>
+    <input type="text"/>
     <p>
         <input type="submit" class="button" name="fibonacci" value="fib"/>
         <input type="submit" class="button" name="factorial" value="!"/>

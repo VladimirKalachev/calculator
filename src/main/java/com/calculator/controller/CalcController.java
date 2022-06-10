@@ -17,53 +17,40 @@ public class CalcController {
 
     @GetMapping("/calc")
     public String getCalcPage(Model model) {
+        CalcModel calcModel = new CalcModel();
         model.addAttribute("calcModel", calcModel);
         return "calc";
     }
 
-    /* @GetMapping("/calc")
-     public String add(@RequestParam (value = "/calc") CalcModel calcModel,
-                       Model model){
-         System.out.println(calcModel.getA());
-         model.addAttribute("result", calcService.add(calcModel));
-         return "calc";
-     }
- */
-    /*@RequestMapping(value = "/calc", params = "add", method = RequestMethod.POST)
-    public String addAB(@ModelAttribute("calcModel") CalcModel calcModel, Model model) {
-
-        System.out.println("A " + calcModel.getA());
-        System.out.println("Calcmodel toString " + calcModel.toString());
-        model.addAttribute("result", calcService.add(calcModel));
-        return "calc";
-    }*/
-
-  /*  @RequestMapping(value = "/calc", params = "subtract", method = RequestMethod.POST)
-    public String subAB(@ModelAttribute("calcModel") CalcModel calcModel,
-                      Model model) {
-
-        System.out.println("A " + calcModel.getA());
-        System.out.println(calcModel.toString());
-        model.addAttribute("result", calcService.sub(calcModel));
-        return "calc";
-    }*/
-
-  /*  @GetMapping(value = "multiply")
-    public String multAB(@RequestParam(name = "calcModel") CalcModel calcModel,
-                       Model model) {
-        System.out.println("Multiply " + calcModel.toString());
-        System.out.println("A = " + calcModel.getA());
-       model.addAttribute(calcModel.getA() * calcModel.getB());
-        return "calc";
-    }*/
-
-    @GetMapping("/plus")
-    public String addAB(@RequestBody CalcModel calcModel,
-                       Model model) {
-        System.out.println("Multiply " + calcModel.toString());
-        System.out.println("A = " + calcModel.getA());
-        model.addAttribute(calcModel.getA() + calcModel.getB());
+    @RequestMapping(value = "/calc", method = RequestMethod.POST, params = "plus")
+    public String plusAB(@RequestParam(value = "a") int a,
+                         @RequestParam(value = "b") int b,
+                         Model model) {
+        model.addAttribute("result", calcService.add(a, b));
         return "calc";
     }
+
+    @RequestMapping(value = "/calc", method = RequestMethod.POST, params = "subst")
+    public String subAB(@RequestParam(value = "a") int a,
+                        @RequestParam(value = "b") int b,
+                        Model model) {
+        model.addAttribute("result", calcService.substr(a, b));
+        return "calc";
+    }
+
+    @RequestMapping(value = "/calc", method = RequestMethod.POST, params = "mult")
+    public void multiplyAB(@RequestParam(value = "a") int a,
+                           @RequestParam(value = "b") int b,
+                           Model model) {
+        model.addAttribute("result", calcService.multiply(a, b));
+    }
+
+    @RequestMapping(value = "/calc", method = RequestMethod.POST, params = "divide")
+    public void divideAB(@RequestParam(value = "a") int a,
+                         @RequestParam(value = "b") int b,
+                         Model model) {
+        model.addAttribute("result", calcService.divide(a, b));
+    }
+
 
 }
